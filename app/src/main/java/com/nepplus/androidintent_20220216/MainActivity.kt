@@ -27,9 +27,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(myIntent)
         }
         btnSendTo.setOnClickListener {
+
+            //문자 보낼 내용 추출
+            val inputContent = edtContent.text.toString()
+
             val inputPhone = edtPhoneNum.text.toString()
             val myUri = Uri.parse("smsto:${inputPhone}")
             val myIntent = Intent(Intent.ACTION_SENDTO, myUri)
+
+            myIntent.putExtra("sms_body", inputContent)
             startActivity(myIntent)
         }
     }
