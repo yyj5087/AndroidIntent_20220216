@@ -38,5 +38,11 @@ class MainActivity : AppCompatActivity() {
             myIntent.putExtra("sms_body", inputContent)
             startActivity(myIntent)
         }
+
+        btnNaverWebLink.setOnClickListener {
+            val myUri = Uri.parse("naver.com")
+            val myIntent =Intent(Intent.ACTION_VIEW, myUri)
+            startActivity(myIntent)
+        }
     }
 }
